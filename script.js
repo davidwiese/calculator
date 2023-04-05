@@ -1,15 +1,33 @@
-const add = function (x, y) {
+function add(x, y) {
   return x + y;
-};
+}
 
-const subtract = function (x, y) {
+function subtract(x, y) {
   return x - y;
-};
+}
 
-const multiply = function (x, y) {
+function multiply(x, y) {
   return x * y;
-};
+}
 
-const divide = function (x, y) {
+function divide(x, y) {
   return x / y;
-};
+}
+
+let firstNum, secondNum, operator;
+
+function operate(operator, firstNum, secondNum) {
+  if (operator === "+") {
+    return add(firstNum, secondNum);
+  } else if (operator === "-") {
+    return subtract(firstNum, secondNum);
+  } else if (operator === "*") {
+    return multiply(firstNum, secondNum);
+  } else if (operator === "/") {
+    return divide(firstNum, secondNum);
+  } else {
+    return "Invalid input";
+  }
+}
+
+console.log(operate("+", 3, 5));
