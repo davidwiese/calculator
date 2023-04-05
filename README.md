@@ -1,6 +1,6 @@
-# Calculator
+# CASIO Calculator Watch
 
-My own calculator from scratch!
+My own calculator from scratch! Modeled after the classic 90s era calculator watch from CASIO.
 
 **Link to project:** Coming soon
 
