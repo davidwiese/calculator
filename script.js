@@ -26,8 +26,6 @@ function operate(operator, firstNum, secondNum) {
   } else if (operator === "/") {
     return divide(firstNum, secondNum);
   } else {
-    return "Invalid input";
+    return "ERROR";
   }
 }
-
-console.log(operate("*", 15, 5));
