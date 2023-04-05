@@ -30,4 +30,4 @@ function operate(operator, firstNum, secondNum) {
   }
 }
 
-console.log(operate("+", 3, 5));
+console.log(operate("*", 15, 5));
