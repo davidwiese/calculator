@@ -15,13 +15,60 @@ const btnMultiply = document.getElementById("btn-multiply");
 const btnEquals = document.getElementById("btn-equals");
 const btnDot = document.getElementById("btn-dot");
 const display = document.getElementById("display");
-
 const btnClear = document.getElementById("btn-clear");
+
 btnClear.addEventListener("click", function () {
   display.textContent = "";
   firstNum = null;
   secondNum = null;
   operator = null;
+  displayedValue = "";
+});
+
+btnEquals.addEventListener("click", function () {
+  if (firstNum && secondNum && operator) {
+    const result = operate(operator, firstNum, secondNum);
+    display.textContent = result;
+    firstNum = result;
+    secondNum = null;
+    operator = null;
+  }
+});
+
+const buttons = document.querySelectorAll(".calc-button");
+let displayedValue = "";
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const buttonValue = button.textContent;
+
+    if (
+      buttonValue === "+" ||
+      buttonValue === "-" ||
+      buttonValue === "*" ||
+      buttonValue === "/"
+    ) {
+      operator = buttonValue;
+      firstNum = Number(displayedValue);
+      displayedValue = "";
+    } else if (buttonValue === "=") {
+      secondNum = Number(displayedValue);
+      const result = operate(operator, firstNum, secondNum);
+      display.textContent = result;
+      displayedValue = result.toString();
+      operator = null;
+      firstNum = null;
+      secondNum = null;
+    } else if (buttonValue === "btn-clear") {
+      displayedValue = "";
+      operator = null;
+      firstNum = null;
+      secondNum = null;
+      display.textContent = "";
+    } else {
+      displayedValue += buttonValue;
+      display.textContent = displayedValue;
+    }
+  });
 });
 
 function add(x, y) {
