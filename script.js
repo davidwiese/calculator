@@ -1,3 +1,4 @@
+let firstNum, secondNum, operator;
 const btn1 = document.getElementById("btn-1");
 const btn2 = document.getElementById("btn-2");
 const btn3 = document.getElementById("btn-3");
@@ -47,9 +48,18 @@ buttons.forEach((button) => {
       buttonValue === "*" ||
       buttonValue === "/"
     ) {
+      if (operator && firstNum) {
+        secondNum = Number(displayedValue);
+        const result = operate(operator, firstNum, secondNum);
+        display.textContent = result;
+        firstNum = result;
+        displayedValue = "";
+      }
       operator = buttonValue;
-      firstNum = Number(displayedValue);
-      displayedValue = "";
+      if (!firstNum) {
+        firstNum = Number(displayedValue);
+        displayedValue = "";
+      }
     } else if (buttonValue === "=") {
       secondNum = Number(displayedValue);
       const result = operate(operator, firstNum, secondNum);
@@ -87,7 +97,14 @@ function divide(x, y) {
   return x / y;
 }
 
-let firstNum, secondNum, operator;
+function clear() {
+  display.textContent = "";
+  firstNum = null;
+  secondNum = null;
+  operator = null;
+}
+
+document.getElementById("btn-clear").addEventListener("click", clear);
 
 function operate(operator, firstNum, secondNum) {
   if (operator === "+") {
