@@ -72,3 +72,27 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
+.calc-body {
+  border: 1px solid black;
+  width: 320px;
+}
+
+.calc-display {
+  border: 1px solid black;
+  height: 100px;
+  text-align: end;
+}
+
+.calc-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  width: 320px;
+  gap: 13px;
+}
+
+.calc-button {
+  width: 70px;
+  height: 70px;
+  justify-content: space-between;
+}
