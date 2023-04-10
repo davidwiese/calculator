@@ -96,3 +96,11 @@ select {
   height: 70px;
   justify-content: space-between;
 }
+
+.calc-clear-area {
+  margin: 13px 0px;
+}
+
+.calc-clear {
+  width: 100%;
+}
