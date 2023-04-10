@@ -29,24 +29,3 @@ function operate(operator, firstNum, secondNum) {
     return "ERROR";
   }
 }
-
-let displayedValue = 0;
-
-function handleButtonClick(buttonValue) {
-  if (buttonValue === Number) {
-    displayedValue = appendNumberToDisplayedValue(displayedValue, buttonValue);
-  } else {
-    let currentValue = displayedValue;
-    displayedValue = 0;
-    let operator = buttonValue;
-    return { currentValue, operator };
-  }
-}
-
-function appendNumberToDisplayedValue(displayedValue, number) {
-  if (displayedValue === 0) {
-    return number.toString();
-  } else {
-    return displayedValue.toString() + number.toString();
-  }
-}
