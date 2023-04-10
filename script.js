@@ -62,23 +62,6 @@ function operate(operator, firstNum, secondNum) {
   }
 }
 
-function calculateResult() {
-  if (operator && lastInputValue) {
-    if (!secondNum) {
-      secondNum = Number(lastInputValue);
-    } else {
-      secondNum = operate(operator, secondNum, Number(lastInputValue));
-    }
-    operator = null;
-    lastInputValue = null;
-    const result = operate(previousOperator, firstNum, secondNum);
-    display.textContent = result;
-    firstNum = result;
-    secondNum = null;
-    previousOperator = null;
-  }
-}
-
 //Event listeners
 document.getElementById("btn-clear").addEventListener("click", clearDisplay);
 const buttons = document.querySelectorAll(".calc-button");
