@@ -32,16 +32,26 @@ function clearDisplay() {
 }
 
 function operate(operator, firstNum, secondNum) {
-  if (operator === "+") {
-    return add(firstNum, secondNum);
-  } else if (operator === "-") {
-    return subtract(firstNum, secondNum);
-  } else if (operator === "*") {
-    return multiply(firstNum, secondNum);
-  } else if (operator === "/") {
-    return divide(firstNum, secondNum);
-  } else {
-    return "ERROR";
+  switch (operator) {
+    case "+":
+      return firstNum + secondNum;
+    case "-":
+      return firstNum - secondNum;
+    case "*":
+      return firstNum * secondNum;
+    case "/":
+      if (secondNum === 0) {
+        operator = null;
+        firstNum = null;
+        secondNum = null;
+        displayedValue = "";
+        lastInputValue = null;
+        return "Nice try. Can't divide by zero.";
+      } else {
+        return firstNum / secondNum;
+      }
+    default:
+      return "ERROR";
   }
 }
 
