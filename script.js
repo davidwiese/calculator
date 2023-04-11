@@ -1,9 +1,11 @@
 //Global variables
 let firstNum, secondNum, operator, lastInputValue;
 let displayedValue = "";
+let decimalAdded = false;
 
 //DOM elements
 const display = document.getElementById("display");
+const pointButton = document.getElementById("btn-dot");
 
 //Functions
 function add(x, y) {
@@ -111,6 +113,11 @@ buttons.forEach((button) => {
         lastInputValue = null;
       }
     } else {
+      // Check to see if the button is a decimal point and if displayedValue already
+      // includes a decimal point. If so, return and do nothing (max 1 decimal)
+      if (buttonValue === "." && displayedValue.includes(".")) {
+        return;
+      }
       // If the button is not an operator or the equals sign, then it must be a digit
       // The digit value is appended to the displayedValue variable, and the text
       // content of the display element is updated to show the new value
