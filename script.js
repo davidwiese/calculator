@@ -1,7 +1,6 @@
 //Global variables
 let firstNum, secondNum, operator, lastInputValue;
 let displayedValue = "";
-let decimalAdded = false;
 
 //DOM elements
 const display = document.getElementById("display");
