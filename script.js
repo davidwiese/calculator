@@ -82,11 +82,11 @@ buttons.forEach((button) => {
         displayedValue = "";
       }
       lastInputValue = null;
-      // If the button is "=", code checks to see if lastInputValue is set. If it is, it means
-      // the user has entered both a first and second number and an operator, and the code
-      // needs to calculate the result of the operation
+      // If the button is "=", code checks to see if  operator, firstNum, and lastInputValue
+      // are set. If so, it means the user has entered both a first and second number and
+      // an operator, and the code needs to calculate the result of the operation
     } else if (buttonValue === "=") {
-      if (lastInputValue) {
+      if (operator && firstNum && lastInputValue) {
         // Set the secondNum variable to the current value of lastInputValue
         secondNum = Number(lastInputValue);
         // Call operate() function with the current operator, firstNum, and secondNum values
