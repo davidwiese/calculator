@@ -47,7 +47,7 @@ function operate(operator, firstNum, secondNum) {
         secondNum = null;
         displayedValue = "";
         lastInputValue = null;
-        return "Nice try. Can't divide by zero.";
+        return "NICE TRY";
       } else {
         result = firstNum / secondNum;
       }
@@ -55,6 +55,31 @@ function operate(operator, firstNum, secondNum) {
     default:
       result = "ERROR";
   }
+  const resultString = result.toString();
+  const resultParts = resultString.split(".");
+  let roundedResult;
+  if (resultParts[0].length > 8) {
+    roundedResult = "TOO LARGE";
+  } else {
+    const decimalDigits = (resultParts[1] || "").substring(0, 8);
+    if (resultParts[0].length === 8 && !decimalDigits) {
+      roundedResult = resultParts[0];
+    } else {
+      roundedResult = resultParts[0] + "." + decimalDigits;
+    }
+  }
+  if (roundedResult.length > 8) {
+    const decimalIndex = roundedResult.indexOf(".");
+    if (decimalIndex === -1) {
+      roundedResult = "TOO LARGE";
+    } else {
+      const wholePart = roundedResult.slice(0, decimalIndex);
+      const decimalPart = roundedResult.slice(decimalIndex + 1, 9);
+      roundedResult = `${wholePart}.${decimalPart}`;
+    }
+  }
+
+  return roundedResult;
 }
 
 document.getElementById("btn-clear").addEventListener("click", clearDisplay);
@@ -87,7 +112,7 @@ buttons.forEach((button) => {
         secondNum = Number(lastInputValue);
         const result = operate(operator, firstNum, secondNum);
         if (result > 99999999) {
-          display.textContent = "ERROR";
+          display.textContent = "TOO LARGE";
         } else {
           display.textContent = result;
           displayedValue = result.toString();
@@ -104,7 +129,7 @@ buttons.forEach((button) => {
       if (displayedValue.length < 8) {
         displayedValue += buttonValue;
         if (Number(displayedValue) > 99999999) {
-          display.textContent = "ERROR";
+          display.textContent = "TOO LARGE";
         } else {
           display.textContent = displayedValue;
         }
