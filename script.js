@@ -58,10 +58,7 @@ function operate(operator, firstNum, secondNum) {
     default:
       result = "ERROR";
   }
-  // Convert the result to a string with a maximum of 8 digits after the decimal point
-  const roundedResult = result.toFixed(7);
-  // Set the roundedResult as the new value of firstNum and return it
-  return Number(roundedResult);
+  return Number(result.toFixed(8)); // limit total number of digits to 8 on either side of the decimal point
 }
 
 //Event listeners
