@@ -128,3 +128,42 @@ buttons.forEach((button) => {
     }
   });
 });
+
+// Add event listener to the document for keyboard input
+document.addEventListener("keydown", (event) => {
+  // Get the key code of the pressed key
+  const key = event.key;
+  // Check if the Shift key is pressed
+  const shiftKeyPressed = event.shiftKey;
+  // Define a mapping of key codes to button ids
+  const keyMap = {
+    "/": "btn-divide",
+    "*": "btn-multiply",
+    "-": "btn-subtract",
+    "+": "btn-add",
+    0: "btn-0",
+    1: "btn-1",
+    2: "btn-2",
+    3: "btn-3",
+    4: "btn-4",
+    5: "btn-5",
+    6: "btn-6",
+    7: "btn-7",
+    8: "btn-8",
+    9: "btn-9",
+    ".": "btn-dot",
+    Enter: "btn-equals",
+    Escape: "btn-clear",
+  };
+  // If the pressed key has a corresponding button, trigger the button click
+  if (keyMap[key]) {
+    const button = document.getElementById(keyMap[key]);
+    if (key === "8" && shiftKeyPressed) {
+      // If the pressed key is the number 8 and the Shift key is pressed, trigger the multiply button
+      const multiplyButton = document.getElementById("btn-multiply");
+      multiplyButton.click();
+    } else {
+      button.click();
+    }
+  }
+});
