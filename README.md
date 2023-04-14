@@ -16,4 +16,4 @@ Coming soon
 
 ## Lessons Learned:
 
-Coming soon
+Regex comment search ^._(//)._\n?
