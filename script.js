@@ -125,11 +125,16 @@ buttons.forEach((button) => {
       // If the button is not an operator or the equals sign, then it must be a digit
       // The digit value is appended to the displayedValue variable, and the text
       // content of the display element is updated to show the new value
-      displayedValue += buttonValue;
-      display.textContent = displayedValue;
-      // lastInputValue variable is set to the current value of displayedValue,
-      // so that the code can keep track of the second number entered by the user
-      lastInputValue = displayedValue;
+      if (displayedValue.length < 8) {
+        displayedValue += buttonValue;
+        display.textContent = displayedValue;
+        // lastInputValue variable is set to the current value of displayedValue,
+        // so that the code can keep track of the second number entered by the user
+        lastInputValue = displayedValue;
+      } else {
+        displayedValue = displayedValue.slice(0, 8); // remove any digits beyond the 8th position
+        display.textContent = displayedValue;
+      }
     }
   });
 });
