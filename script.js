@@ -35,11 +35,14 @@ function clearDisplay() {
 function operate(operator, firstNum, secondNum) {
   switch (operator) {
     case "+":
-      return firstNum + secondNum;
+      result = firstNum + secondNum;
+      break;
     case "-":
-      return firstNum - secondNum;
+      result = firstNum - secondNum;
+      break;
     case "*":
-      return firstNum * secondNum;
+      result = firstNum * secondNum;
+      break;
     case "/":
       if (secondNum === 0) {
         operator = null;
@@ -49,11 +52,16 @@ function operate(operator, firstNum, secondNum) {
         lastInputValue = null;
         return "Nice try. Can't divide by zero.";
       } else {
-        return firstNum / secondNum;
+        result = firstNum / secondNum;
       }
+      break;
     default:
-      return "ERROR";
+      result = "ERROR";
   }
+  // Convert the result to a string with a maximum of 8 digits after the decimal point
+  const roundedResult = result.toFixed(7);
+  // Set the roundedResult as the new value of firstNum and return it
+  return Number(roundedResult);
 }
 
 //Event listeners
