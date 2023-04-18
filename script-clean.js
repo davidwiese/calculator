@@ -55,31 +55,36 @@ function operate(operator, firstNum, secondNum) {
     default:
       result = "ERROR";
   }
-  const resultString = result.toString();
-  const resultParts = resultString.split(".");
-  let roundedResult;
-  if (resultParts[0].length > 8) {
-    roundedResult = "TOO LARGE";
+
+  if (Number.isInteger(result)) {
+    return result.toString();
   } else {
-    const decimalDigits = (resultParts[1] || "").substring(0, 8);
-    if (resultParts[0].length === 8 && !decimalDigits) {
-      roundedResult = resultParts[0];
-    } else {
-      roundedResult = resultParts[0] + "." + decimalDigits;
-    }
-  }
-  if (roundedResult.length > 8) {
-    const decimalIndex = roundedResult.indexOf(".");
-    if (decimalIndex === -1) {
+    const resultString = result.toString();
+    const resultParts = resultString.split(".");
+    let roundedResult;
+    if (resultParts[0].length > 8) {
       roundedResult = "TOO LARGE";
     } else {
-      const wholePart = roundedResult.slice(0, decimalIndex);
-      const decimalPart = roundedResult.slice(decimalIndex + 1, 9);
-      roundedResult = `${wholePart}.${decimalPart}`;
+      const decimalDigits = (resultParts[1] || "").substring(0, 8);
+      if (resultParts[0].length === 8 && !decimalDigits) {
+        roundedResult = resultParts[0];
+      } else {
+        roundedResult = resultParts[0] + "." + decimalDigits;
+      }
     }
-  }
+    if (roundedResult.length > 8) {
+      const decimalIndex = roundedResult.indexOf(".");
+      if (decimalIndex === -1) {
+        roundedResult = "TOO LARGE";
+      } else {
+        const wholePart = roundedResult.slice(0, decimalIndex);
+        const decimalPart = roundedResult.slice(decimalIndex + 1, 9);
+        roundedResult = `${wholePart}.${decimalPart}`;
+      }
+    }
 
-  return roundedResult;
+    return roundedResult;
+  }
 }
 
 document.getElementById("btn-clear").addEventListener("click", clearDisplay);

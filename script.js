@@ -58,36 +58,41 @@ function operate(operator, firstNum, secondNum) {
     default:
       result = "ERROR";
   }
-  const resultString = result.toString();
-  const resultParts = resultString.split(".");
-  let roundedResult;
-  if (resultParts[0].length > 8) {
-    // If there are more than 8 digits before the decimal point, show an error
-    roundedResult = "TOO LARGE";
+
+  if (Number.isInteger(result)) {
+    return result.toString();
   } else {
-    // Round to 8 digits after the decimal point, if necessary
-    const decimalDigits = (resultParts[1] || "").substring(0, 8);
-    if (resultParts[0].length === 8 && !decimalDigits) {
-      roundedResult = resultParts[0];
-    } else {
-      roundedResult = resultParts[0] + "." + decimalDigits;
-    }
-  }
-  // Limit the total number of digits to 8, including the decimal point
-  if (roundedResult.length > 8) {
-    const decimalIndex = roundedResult.indexOf(".");
-    if (decimalIndex === -1) {
-      // The result is a whole number with more than 8 digits, show an error
+    const resultString = result.toString();
+    const resultParts = resultString.split(".");
+    let roundedResult;
+    if (resultParts[0].length > 8) {
+      // If there are more than 8 digits before the decimal point, show an error
       roundedResult = "TOO LARGE";
     } else {
-      // Limit the result to 8 digits including the decimal point
-      const wholePart = roundedResult.slice(0, decimalIndex);
-      const decimalPart = roundedResult.slice(decimalIndex + 1, 9);
-      roundedResult = `${wholePart}.${decimalPart}`;
+      // Round to 8 digits after the decimal point, if necessary
+      const decimalDigits = (resultParts[1] || "").substring(0, 8);
+      if (resultParts[0].length === 8 && !decimalDigits) {
+        roundedResult = resultParts[0];
+      } else {
+        roundedResult = resultParts[0] + "." + decimalDigits;
+      }
     }
-  }
+    // Limit the total number of digits to 8, including the decimal point
+    if (roundedResult.length > 8) {
+      const decimalIndex = roundedResult.indexOf(".");
+      if (decimalIndex === -1) {
+        // The result is a whole number with more than 8 digits, show an error
+        roundedResult = "TOO LARGE";
+      } else {
+        // Limit the result to 8 digits including the decimal point
+        const wholePart = roundedResult.slice(0, decimalIndex);
+        const decimalPart = roundedResult.slice(decimalIndex + 1, 9);
+        roundedResult = `${wholePart}.${decimalPart}`;
+      }
+    }
 
-  return roundedResult;
+    return roundedResult;
+  }
 }
 
 //Event listeners
