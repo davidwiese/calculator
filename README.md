@@ -1,6 +1,6 @@
 # CASIO Calculator Watch
 
-My own calculator from scratch! Modeled after the classic 90s era calculator watch from CASIO.
+My own calculator from scratch! Inspired by the classic CASIO Data Bank 80 calculator watch.
 
 **Link to project:** Coming soon
 
@@ -12,8 +12,8 @@ Coming soon
 
 ## Optimizations
 
-Coming soon
+I'd like to fix a few bugs that can occur if someone is using the calculator in a non-conventional way.
 
 ## Lessons Learned:
 
-// ^._(//)._\n? //
+Calculators are hard.
