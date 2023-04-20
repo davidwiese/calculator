@@ -35,6 +35,8 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  background-color: #00aeed;
+  color: #fff9f7;
 }
 
 /* A elements that don't have a class get default styles */
