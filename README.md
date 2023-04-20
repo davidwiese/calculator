@@ -8,11 +8,11 @@ My own calculator from scratch! Inspired by Studio Ghibli's work.
 
 **Tech used:** HTML, CSS, JavaScript
 
-Coming soon
+Accomplished the design and logic with vanilla HTML, CSS, and JavaScript.
 
 ## Optimizations
 
-I'd like to fix a few bugs that can occur if someone is using the calculator in a non-conventional way.
+I'd like to fix a few bugs that can occur if someone is using the calculator in a non-conventional way. Would also like to create a mobile responsive version.
 
 ## Lessons Learned:
 
