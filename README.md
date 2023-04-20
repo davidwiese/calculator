@@ -1,6 +1,6 @@
-# CASIO Calculator Watch
+# GHIBLI CALCULATOR
 
-My own calculator from scratch! Inspired by the classic CASIO Data Bank 80 calculator watch.
+My own calculator from scratch! Inspired by Studio Ghibli's work.
 
 **Link to project:** Coming soon
 
