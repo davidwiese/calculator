@@ -147,7 +147,8 @@ h1 {
   color: #000000;
   transition: background-color 0.3s ease;
   width: 73%;
-  line-height: 15px;
+  line-height: 13px;
+  padding-top: 3px;
 }
 
 .calc-clear:hover {
