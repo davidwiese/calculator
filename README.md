@@ -1,4 +1,4 @@
-# GHIBLI CALCULATOR
+# CALCULATOR GHIBLI
 
 My own calculator from scratch! Inspired by Studio Ghibli's aesthetic.
 
